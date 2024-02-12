@@ -1,0 +1,324 @@
+/* --------------------------------------- */
+/* ----- Basic Setup ----- */
+/* --------------------------------------- */
+
+@font-face {
+  font-family: "Hk Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/HKGrotesk-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/Jost-Regular.ttf") format("woff");
+}
+
+:root {
+  --font-size-small: 1.8rem;
+  --font-size-normal: 2.2rem;
+  --font-size-medium: 2.8rem;
+  --font-size-medium-1: 3.6rem;
+  --font-size-large: 5.5rem;
+  --font-size-huge: 7.5rem;
+  --font-stack: "Hk Grotesk", sans-serif;
+
+  --line-height-normal: 1.7;
+  --line-height-small: 1.2;
+
+  --black: #000;
+  --pink: #f8c681;
+  --white: #f0e9f2;
+  --white-1: #e5e5e6da;
+  --grey: #545454;
+
+  --container-max-width: 1920px;
+  --container-normal-width: 800px;
+  --container-medium-width: 700px;
+  --container-small-width: 500px;
+
+  --gutter-huge: 12rem;
+  --gutter-medium: 6rem;
+  --gutter-normal: 3rem;
+  --gutter-small-1: 2.5rem;
+  --gutter-small: 2rem;
+
+  --border-light: 1px solid rgb(36, 35, 35);
+}
+
+html {
+  font-size: 62.5%; /* (16/10)*100 = 62.5% => 1rem = 10px */
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 1000px) {
+  html {
+    font-size: 52%;
+  }
+}
+
+body {
+  font-size: var(--font-size-small);
+  font-family: var(--font-stack);
+  font-weight: 400;
+  color: var(--grey);
+  line-height: var(--line-height-normal);
+  background: var(--black);
+  overflow-x: hidden;
+}
+
+.row {
+  max-width: var(--container-max-width);
+}
+
+@media (max-width: 1440px) {
+  .row {
+    max-width: 1440px;
+  }
+}
+
+@media (max-width: 1540px) {
+  .row {
+    max-width: 1540px;
+  }
+}
+
+@media (max-width: 1240px) {
+  .row {
+    max-width: 1340px;
+  }
+}
+
+@media (max-width: 900px) {
+  .row {
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 800px) {
+  .row {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 600px) {
+  .row {
+    max-width: 600px;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  line-height: var(--line-height-small);
+  color: var(--grey);
+}
+
+.heading-primary .name {
+  line-height: 1;
+  font-size: var(--font-size-huge);
+  font-weight: 400;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .heading-primary .name {
+    font-size: 6.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .heading-primary {
+    font-size: var(--font-size-large);
+  }
+}
+
+p {
+  margin: var(--gutter-small-1) 0;
+}
+
+@media (max-width: 900px) {
+  p {
+    max-width: var(--container-small-width);
+  }
+}
+
+/* --------------------------------------- */
+/* ----- Buttons and Links ----- */
+/* --------------------------------------- */
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4.2rem;
+  text-decoration: none;
+  color: var(--pink);
+  border: 1px solid var(--grey);
+  font-size: var(--font-size-normal);
+  font-weight: 400;
+  margin: 1rem 0;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  background: var(--white);
+  height: 100%;
+  z-index: -1;
+  transition: all 0.2s cubic-bezier(1, 0.68, 0.16, 0.9);
+}
+
+.btn:hover::after,
+.btn:focus::after {
+  right: 0;
+  background: var(--grey);
+}
+
+.btn--pink {
+  background: var(--grey);
+  transition: all 0.2s;
+  border-radius: 8rem;
+  max-width: 400px;
+  margin-left: 5px;
+}
+
+.btn--pink::after {
+  display: none;
+}
+
+.btn--pink:hover {
+  background: transparent;
+  color: #545454;
+}
+
+.header {
+  background: linear-gradient(#96774d, #f8c681);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-size: var(--font-size-normal);
+  margin: auto;
+  position: relative;
+}
+
+.header__text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.header__text p {
+  margin: 1.5rem 0 0.7rem 3.5rem;
+  max-width: var(--container-medium-width);
+  font-family: "Jost", sans-serif;
+  font-size: var(--font-size-medium);
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .header {
+    text-align: center;
+  }
+
+  .header__text p {
+    transform: scale(0.8);
+  }
+}
+
+.profile {
+  max-width: 10%;
+  border-radius: 10%;
+  box-shadow: #000;
+}
+
+@media (min-width: 500px) {
+  .profile {
+    max-width: 38.4%;
+  }
+}
+
+@media (max-width: 500px) {
+  .profile {
+    max-width: 38.4%;
+  }
+}
+
+@media (min-width: 900px) {
+  .profile {
+    max-width: 21.3%;
+  }
+}
+
+@media (min-width: 1240px) {
+  .profile {
+    max-width: 15.5%;
+  }
+}
+
+@media (min-width: 1640px) {
+  .profile {
+    max-width: 11.7%;
+  }
+}
+
+.social-icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 500px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--grey);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin: 0 0 5px 0;
+}
+
+.social-icon:hover {
+  color: #f8c681;
+  background-color: #000;
+}
+
+.fa-facebook {
+  font-size: 20px;
+}
+
+.fa-twitter {
+  font-size: 20px;
+}
+
+.fa-instagram {
+  font-size: 20px;
+}
+
+.fa-youtube {
+  font-size: 20px;
+}
+
+button .button-text {
+  font-size: small;
+  text-align: center;
+}
